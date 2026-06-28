@@ -63,43 +63,50 @@ function TradeContent() {
 
   // Authenticated — show trading UI
   return (
-    <div className="container mx-auto px-4 py-8 h-[calc(100vh-64px)] flex flex-col md:flex-row gap-6 mt-8">
-      {/* Chart Section */}
-      <div className="flex-1 min-h-[400px] md:min-h-0 order-2 md:order-1">
-        <TradingViewWidget />
-      </div>
+    <div className="w-full min-h-[calc(100vh-64px)] flex flex-col">
+      {/* Mobile: chart on top, swap below — both scrollable */}
+      <div className="flex flex-col lg:flex-row flex-1 gap-0 lg:gap-6 px-4 py-4 lg:py-8 lg:container lg:mx-auto">
 
-      {/* Swap + Stats Section */}
-      <div className="w-full md:w-[400px] shrink-0 order-1 md:order-2 flex flex-col gap-4">
-        {/* Active token indicator */}
-        <div className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[#00FF88]/20 bg-[#00FF88]/5 text-sm">
-          <span className="w-2 h-2 rounded-full bg-[#00FF88] animate-pulse" />
-          <span className="text-[#00FF88] font-semibold">Trading: {tokenSymbol}</span>
+        {/* Chart Section — full width on mobile, flex-1 on desktop */}
+        <div className="w-full lg:flex-1 h-[360px] sm:h-[420px] lg:h-[calc(100vh-112px)] order-1">
+          <TradingViewWidget />
         </div>
 
-        <TokenSwap />
+        {/* Swap + Stats Section */}
+        <div className="w-full lg:w-[380px] shrink-0 order-2 flex flex-col gap-4 mt-4 lg:mt-0 lg:h-[calc(100vh-112px)] lg:overflow-y-auto">
+          {/* Active token indicator */}
+          <div className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[#00FF88]/20 bg-[#00FF88]/5 text-sm">
+            <span className="w-2 h-2 rounded-full bg-[#00FF88] animate-pulse" />
+            <span className="text-[#00FF88] font-semibold">Trading: {tokenSymbol}</span>
+          </div>
 
-        {/* Market Stats */}
-        <div className="bg-black/40 rounded-2xl p-6 border border-[#00FF88]/10 glass">
-          <h3 className="text-lg font-semibold mb-4 text-white/90">Market Stats</h3>
-          <div className="space-y-3 text-sm">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">24h Volume</span>
-              <span className="font-semibold text-white">$1.2B</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">24h High</span>
-              <span className="font-semibold text-[#00FF88]">$145.20</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">24h Low</span>
-              <span className="font-semibold text-red-400">$132.80</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">24h Change</span>
-              <span className="font-semibold text-[#00FF88]">+4.72%</span>
+          <TokenSwap />
+
+          {/* Market Stats */}
+          <div className="bg-black/40 rounded-2xl p-6 border border-[#00FF88]/10 glass">
+            <h3 className="text-lg font-semibold mb-4 text-white/90">Market Stats</h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">24h Volume</span>
+                <span className="font-semibold text-white">$1.2B</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">24h High</span>
+                <span className="font-semibold text-[#00FF88]">$145.20</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">24h Low</span>
+                <span className="font-semibold text-red-400">$132.80</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">24h Change</span>
+                <span className="font-semibold text-[#00FF88]">+4.72%</span>
+              </div>
             </div>
           </div>
+
+          {/* Bottom padding on mobile so last card isn't flush to edge */}
+          <div className="h-4 lg:hidden" />
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@ export function TradingViewWidget() {
 
   return (
     <div className="tradingview-widget-container h-full w-full rounded-2xl overflow-hidden border border-white/10 glass bg-[#0a0a0a]">
-      <div id="tradingview_widget" className="h-[400px] lg:h-full w-full" />
+      <div id="tradingview_widget" className="h-full w-full" />
     </div>
   );
 }

@@ -108,14 +108,24 @@ body {
 
 /* ─── 3D rotating carousel/wheel of tokens ─── */
 :root {
-  --carousel-radius: 290px;
-  --carousel-item-width: 175px;
+  --carousel-radius: 300px;
+  --carousel-item-width: 180px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  :root {
+    --carousel-radius: 220px;
+    --carousel-item-width: 145px;
+  }
+}
+
+@media (max-width: 640px) {
   :root {
     --carousel-radius: 140px;
-    --carousel-item-width: 105px;
+    --carousel-item-width: 110px;
+  }
+  .carousel-change-badge {
+    display: none !important;
   }
 }
 
@@ -148,9 +158,11 @@ body {
   animation: rotate-3d-reverse 30s linear infinite;
 }
 
-/* Pause rotation on container hover */
-.carousel-3d-container:hover .carousel-3d-track {
-  animation-play-state: paused;
+/* Pause rotation ONLY when hovering actual track/tokens, and only on hover-capable devices */
+@media (hover: hover) {
+  .carousel-3d-track:hover {
+    animation-play-state: paused;
+  }
 }
 
 .carousel-3d-item {

@@ -128,7 +128,7 @@ function Token3DChip({
         {/* 24h change badge */}
         {token.change24h !== null && (
           <span
-            className={`ml-auto text-[9px] font-bold px-1.5 py-0.5 rounded-md ${
+            className={`carousel-change-badge ml-auto text-[9px] font-bold px-1.5 py-0.5 rounded-md ${
               isPositive
                 ? "bg-[#00FF88]/10 text-[#00FF88]"
                 : "bg-red-500/10 text-red-400"

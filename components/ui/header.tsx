@@ -105,10 +105,16 @@ export function Header() {
   async function handleLogoutConfirm() {
     setLoggingOut(true);
     try {
+      // Clear any pending navigation intent before logout
+      sessionStorage.removeItem("tradingToken");
       await logout();
       setShowLogoutModal(false);
-      router.push("/");
-    } finally {
+      // CRITICAL: Use hard page reload instead of client-side navigation.
+      // router.push() keeps the React tree alive, leaving Privy's SDK with stale
+      // OAuth nonces/PKCE verifiers in memory → causes "fails on second login".
+      // A full reload completely re-initializes the Privy SDK from scratch.
+      window.location.href = "/";
+    } catch {
       setLoggingOut(false);
     }
   }

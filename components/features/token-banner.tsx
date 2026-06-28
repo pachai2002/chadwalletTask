@@ -165,9 +165,10 @@ export function TokenBanner({ direction = "ltr", className = "" }: TokenBannerPr
       if (authenticated) {
         router.push(`/trade?token=${symbol}`);
       } else {
-        login();
-        // After login, Privy redirects back; we store intent via sessionStorage
+        // Set intent BEFORE calling login() to avoid race condition
+        // (Privy can open the OAuth popup synchronously)
         sessionStorage.setItem("tradingToken", symbol);
+        login();
       }
     },
     [authenticated, login, router]

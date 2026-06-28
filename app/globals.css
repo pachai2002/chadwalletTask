@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  
+  --color-primary: #00FF88;           /* ChadWallet neon green */
+  --color-primary-dark: #00cc6a;      /* darker shade for hover */
+  --color-primary-foreground: #000000;
+  
+  --color-muted: #111a14;
+  --color-muted-foreground: #9ca3af;
+  
+  --color-card: rgba(0, 255, 136, 0.03);
+  --color-card-border: rgba(0, 255, 136, 0.08);
+
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 35s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  
+  @keyframes marquee {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-reverse {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-16px); }
+  }
+
+  @keyframes fade-in {
+    0%   { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(0, 255, 136, 0.07), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(0, 255, 136, 0.05), transparent 30%);
+}
+
+.glass {
+  background: rgba(0, 255, 136, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 136, 0.08);
+}
+
+.glow-text {
+  text-shadow: 0 0 30px rgba(0, 255, 136, 0.7);
+}
+
+.glow-primary {
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.4);
+}
+
+.glow-primary-sm {
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.25);
+}
+
+.animate-float {
+  animation: var(--animate-float);
+}
+
+.animate-marquee {
+  animation: var(--animate-marquee);
+}
+
+.animate-marquee-reverse {
+  animation: var(--animate-marquee-reverse);
+}
+
+/* Token banner hover pause */
+.banner-track:hover .animate-marquee,
+.banner-track:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease forwards;
+}

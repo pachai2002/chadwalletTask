@@ -1,0 +1,20 @@
+- `[ ]` Setup and Dependencies
+  - `[ ]` Install `framer-motion`, `lucide-react`, `clsx`, `tailwind-merge`
+  - `[ ]` Install `@privy-io/react-auth`
+  - `[ ]` Install base shadcn/ui components
+- `[ ]` Core Layout and Styling
+  - `[ ]` Configure `app/globals.css` (Tailwind variables, dark theme, glassmorphism)
+  - `[ ]` Create `components/ui/button.tsx` and `components/ui/card.tsx`
+  - `[ ]` Create `components/ui/header.tsx` and `components/ui/footer.tsx`
+  - `[ ]` Setup `app/layout.tsx` (PrivyProvider, layout wrapper)
+- `[ ]` Landing Page (`/`)
+  - `[ ]` Create `components/sections/hero.tsx` (animations, typography)
+  - `[ ]` Create `components/features/marquee.tsx` (infinite scroll)
+  - `[ ]` Update `app/page.tsx`
+- `[ ]` Trading Page (`/trade`)
+  - `[ ]` Create `app/trade/page.tsx` layout
+  - `[ ]` Implement `components/features/trading-view.tsx` (placeholder)
+  - `[ ]` Implement `components/features/token-swap.tsx` (placeholder API)
+- `[ ]` Verification and Final Polish
+  - `[ ]` Check responsive design on all pages
+  - `[ ]` Run build to ensure no TypeScript/Next.js errors

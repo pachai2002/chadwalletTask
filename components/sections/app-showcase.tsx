@@ -100,7 +100,9 @@ export function AppShowcase() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16"
         >
           <a
-            href="#"
+            href="https://apps.apple.com/us/app/chadwallet/id6757367474"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-3.5 rounded-2xl border border-[#00FF88]/30 bg-[#00FF88]/5 hover:bg-[#00FF88]/10 hover:border-[#00FF88]/60 transition-all group"
           >
             <svg className="w-7 h-7 text-white group-hover:text-[#00FF88] transition-colors" viewBox="0 0 24 24" fill="currentColor">
@@ -112,7 +114,9 @@ export function AppShowcase() {
             </div>
           </a>
           <a
-            href="#"
+            href="https://play.google.com/store/apps/details?id=xyz.chadwallet.www&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-3.5 rounded-2xl border border-[#00FF88]/30 bg-[#00FF88]/5 hover:bg-[#00FF88]/10 hover:border-[#00FF88]/60 transition-all group"
           >
             <svg className="w-7 h-7 text-white group-hover:text-[#00FF88] transition-colors" viewBox="0 0 24 24" fill="currentColor">

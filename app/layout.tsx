@@ -18,6 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ChadWallet | Modern Crypto Trading",
   description: "The premier modern crypto wallet and trading platform.",
+  icons: {
+    icon: "/chadwallet_assets/logo/dark.png",
+    apple: "/chadwallet_assets/logo/dark.png",
+  },
 };
 
 export default function RootLayout({

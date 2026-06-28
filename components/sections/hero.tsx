@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { usePrivy } from "@privy-io/react-auth";
@@ -8,8 +9,16 @@ import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
 
 export function Hero() {
-  const { authenticated, login } = usePrivy();
+  const { ready, authenticated, login } = usePrivy();
   const router = useRouter();
+
+  // Redirect to /trade after Privy is ready and user completed login from "Start Trading"
+  useEffect(() => {
+    if (ready && authenticated && sessionStorage.getItem("tradingToken")) {
+      sessionStorage.removeItem("tradingToken");
+      router.push("/trade");
+    }
+  }, [ready, authenticated, router]);
 
   function handleStartTrading() {
     if (authenticated) {
